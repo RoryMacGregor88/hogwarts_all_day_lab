@@ -9,7 +9,7 @@ class Student
     @first_name = options['first_name']
     @last_name = options['last_name']
     @house = options['house']
-    @age = options['age']
+    @age = options['age'].to_i
   end
 
 #CRUD---------------------------------------------------------------------------
@@ -46,6 +46,6 @@ class Student
     return new_students
   end
 
-  
+
 
 end
