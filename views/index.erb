@@ -3,7 +3,7 @@
 <% @students.each do |student| %>
     <p>First name: <%= student.first_name %></p>
     <p>Last name: <%= student.last_name %></p>
-    <p>House: <%= student.house %></p>
+    <p>House: <%= House.find(student.house_id).name %></p>
     <p>Age: <%= student.age %></p>
 <% end %>
 

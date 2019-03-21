@@ -2,9 +2,12 @@ require_relative('../db/sql_runner.rb')
 
 class House
 
-  def inititlize(options)
+  attr_accessor :name, :id, :url
+
+  def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
+    @url = options['url']
   end
 
   #CRUD---------------------------------------------------------------------------
@@ -15,14 +18,14 @@ class House
     end
 
     def save()
-      sql = 'INSERT INTO houses (name) VALUES ($1) RETURNING id'
-      values = [@name]
+      sql = 'INSERT INTO houses (name, url) VALUES ($1, $2) RETURNING id'
+      values = [@name, @url]
       @id = SqlRunner.run(sql, values).first['id']
     end
 
     def update()
-      sql = 'UPDATE houses SET (name) = ($1) WHERE id = $2'
-      values = [@name, @id]
+      sql = 'UPDATE houses SET (name, url) = ($1, $2) WHERE id = $3'
+      values = [@name, @url, @id]
       SqlRunner.run(sql, values)
     end
 

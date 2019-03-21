@@ -15,12 +15,12 @@
     </tr>
     <tr>
       <td><label for="house">House: </label></td>
+
       <td>
-        <select class="" id="house" name="house">
-          <option value="Slytherin">Slytherin</option>
-          <option value="Ravenclaw">Ravenclaw</option>
-          <option value="Gryffindor">Gryffindor</option>
-          <option value="Hufflepuff">Hufflepuff</option>
+        <select class="" id="house_id" name="house_id">
+          <% @houses.each do |house| %>
+            <option value= "<%=house.id%>"><%=house.name%></option>
+          <%end%>
         </select>
       </td>
     </tr>
